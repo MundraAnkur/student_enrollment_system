@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Add New Instructor</h4>
+  </div>
+  <div class="card-body">
+    <%= form_with(model: @instructor) do |f| %>
+      <%= render "home/error_messages", resource: @instructor %>
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :name, class: "form-control", placeholder: 'Name' %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :department, class: "form-control", placeholder: 'Department' %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :email, class: "form-control", placeholder: 'Email' %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.password_field :password, class: "form-control", placeholder: 'Password' %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: 'Password Confirmation' %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Add", class: 'btn btn-secondary' %>
+        <%= link_to "Back", admin_instructors_path, class: 'btn btn-dark' %>
+      </div>
+    <% end %>
+  </div>
+</div>

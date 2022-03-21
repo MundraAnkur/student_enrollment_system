@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Edit Instructor Profile</h4>
+  </div>
+  <div class="card-body">
+    <%= form_with(model: @instructor, local: true) do |f| %>
+      <%= render "home/error_messages", resource: @instructor %>
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: 'Name', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :department, autofocus: true, class: "form-control", placeholder: 'Department', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: 'Email', required: true %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class: 'btn btn-secondary' %>
+        <%= link_to "Back", admin_instructors_path, class: 'btn btn-dark' %>
+      </div>
+    <% end %>
+  </div>
+</div>

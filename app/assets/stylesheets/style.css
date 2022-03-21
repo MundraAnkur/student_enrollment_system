@@ -1,0 +1,117 @@
+.tiles {
+    margin-top: 100px;
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+    .tiles {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tiles {
+        padding: 0 15px;
+        margin-top: 60px;
+    }
+}
+
+.tiles h2 {
+    margin-bottom: 50px;
+}
+
+@media (max-width: 992px) {
+    .tiles h2 {
+        margin-bottom: 40px;
+    }
+}
+
+.tiles .link-tiles {
+    margin-bottom: 20px;
+    background: #F3f3f3;
+    height: 137px;
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+    .tiles .link-tiles {
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tiles .link-tiles {
+        height: 90px;
+    }
+}
+
+.tiles .link-tiles a {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    color: #111;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+    padding-left: 1.2rem;
+    text-transform: uppercase;
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+    .tiles .link-tiles a {
+        padding-left: 15px;
+        font-size: 15px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tiles .link-tiles a {
+        font-size: 14px;
+        line-height: 18px;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 350px) {
+    .tiles .link-tiles a {
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
+
+.link-tiles a:after {
+    font-family: FontAwesome, ui-serif;
+    content: "\f0c1";
+    top: 42%;
+    right: 30px;
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+.link-tiles:hover {
+    background: #333;
+    transition: all, 0.4s, ease;
+}
+
+.link-tiles:hover a {
+    color: #f1f1f1;
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+    .tiles .link-tiles a:after {
+        right: 15px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .link-tiles a:after {
+        right: 0.8rem;
+        font-size: 1.2rem;
+    }
+}
+
+.link-tiles:hover a {
+    color: #f1f1f1;
+}

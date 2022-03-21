@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <% if admin_signed_in? %>
+      <%= link_to 'Home', admin_root_path, class: 'navbar-brand' %>
+    <% elsif instructor_signed_in? %>
+      <%= link_to 'Home', instructor_root_path, class: 'navbar-brand' %>
+    <% elsif student_signed_in? %>
+      <%= link_to 'Home', student_root_path, class: 'navbar-brand' %>
+    <% else %>
+      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="nav navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if !member_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Admin', new_admin_session_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Instructor', new_instructor_session_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Student', new_student_session_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'About Us', home_about_path, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <% if admin_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link active">Role: <u>Admin</u> (<%= current_admin.name %>)</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Edit Profile", edit_admin_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, data: { turbo_method: :delete }, class: 'nav-link' %>
+            </li>
+          <% elsif instructor_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link active">Role: <b><i>Instructor</i></b> (<%= current_instructor.name %>)</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Edit Profile", edit_instructor_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_instructor_session_path, method: :delete, data: { turbo_method: :delete }, class: 'nav-link' %>
+            </li>
+          <% elsif student_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link active">Role: <b>Student</b> (<%= current_student.name %>)</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Edit Profile", edit_student_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_student_session_path, method: :delete, data: { turbo_method: :delete }, class: 'nav-link' %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

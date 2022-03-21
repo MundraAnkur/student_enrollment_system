@@ -1,0 +1,66 @@
+<h2 align="center">Enrolled Students- <%= @course.code %></h2>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover align-middle">
+    <thead class="table-dark">
+    <tr>
+      <th scope="col">Student ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date Of Birth</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Major</th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @enrolled_students.each do |student| %>
+      <tr>
+        <td><%= student.student_id %></td>
+        <td><%= student.name %></td>
+        <td><%= student.dob %></td>
+        <td><%= student.email %></td>
+        <td><%= student.phone %></td>
+        <td><%= student.major %></td>
+        <td><%= link_to 'Drop', Enroll.where(:student_id => student.student_id, :course_id => @course.code).first, method: :delete,
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-outline-danger' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<h2 align="center">Wait Listed Students</h2>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover align-middle">
+    <thead class="table-dark">
+    <tr>
+      <th scope="col">Student ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date Of Birth</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Major</th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @wait_listed_students.each do |student| %>
+      <tr>
+        <td><%= student.student_id %></td>
+        <td><%= student.name %></td>
+        <td><%= student.dob %></td>
+        <td><%= student.email %></td>
+        <td><%= student.phone %></td>
+        <td><%= student.major %></td>
+        <td><%= link_to 'Drop', Enroll.where(:student_id => student.student_id, :course_id => @course.code).first, method: :delete,
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-outline-danger' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <%= link_to 'Enroll Student', course_enroll_students_path(id: @course.code), class: 'btn btn-primary' %>
+  <%= link_to 'Back', instructor_root_path, class: 'btn btn-dark' %>
+</div>

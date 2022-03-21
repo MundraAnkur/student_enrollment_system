@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Add New Student</h4>
+  </div>
+  <div class="card-body">
+    <%= form_with(model: @student) do |f| %>
+      <%= render "home/error_messages", resource: @student %>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :student_id, class: "form-control", placeholder: 'Student Id', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :name, class: "form-control", placeholder: 'Name', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          Birth date <br>
+          <%= f.date_field :dob, class: "form-control", placeholder: 'Date Of Birth', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :major, class: "form-control", placeholder: 'Major', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :email, class: "form-control", placeholder: 'Email', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :phone, class: "form-control", placeholder: 'Phone', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.password_field :password, class: "form-control", placeholder: 'Password', required: true %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: 'Password Confirmation', required: true %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Add", class: 'btn btn-secondary' %>
+        <%= link_to "Back", admin_students_path, class: 'btn btn-dark' %>
+      </div>
+    <% end %>
+  </div>
+</div>

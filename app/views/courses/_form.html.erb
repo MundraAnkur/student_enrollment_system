@@ -1,0 +1,83 @@
+<%= form_with(model: course, local: true) do |form| %>
+  <%= render "home/error_messages", resource: course %>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <%= form.text_field :code, class:"form-control", placeholder:'Course Code', required: true %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <%= form.text_field :name, class:"form-control", placeholder:'Name', required: true %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <%= form.text_field :description, class: "form-control", placeholder: 'Description', required: true %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <% options = %w[MON TUE WED THU FRI] %>
+      <%= form.select :weekday1, options, { include_blank: "Weekday 1" }, class: "form-select", required: true %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <% options = %w[MON TUE WED THU FRI] %>
+      <%= form.select :weekday2, options, { include_blank: "Weekday 2" }, class: "form-select" %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <%= form.label :start_time %>
+      <%= form.time_field :start_time, class: "form-control", placeholder: 'Start Time', required: true %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <%= form.label :end_time %>
+      <%= form.time_field :end_time, class:"form-control", placeholder:'End Time', required: true %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <%= form.text_field :room, class:"form-control", placeholder:'Room', required: true %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <%= form.number_field :capacity, class:"form-control", placeholder:'Capacity', required: true %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <%= form.number_field :waitlist_capacity, class: "form-control", placeholder: 'Waitlist Capacity', required: true %>
+    </div>
+  </div>
+
+  <% if admin_signed_in? %>
+    <div class="row mb-3">
+      <div class="col-sm-6">
+        <% options = options_from_collection_for_select(@instructors, 'id', 'name', selected = @course.instructor_id) %>
+        <%= form.select :instructor_id, options, { include_blank: "Instructor" }, class: "form-select", required: true %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row mb-3">
+      <div class="col-sm-6">
+        <%= form.text_field :instructor_name, class: "form-control", placeholder: 'Instructor', value: @instructor.name, hidden: true %>
+      </div>
+    </div>
+  <% end %>
+  <%= form.submit class: 'btn btn-secondary' %>
+<% end %>

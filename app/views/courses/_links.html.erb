@@ -1,0 +1,9 @@
+<% if admin_signed_in? %>
+  <%= link_to "Back", admin_courses_path, class: 'btn btn-dark' %>
+<% elsif instructor_signed_in? %>
+  <%= link_to "Back", instructor_root_path,class:'btn btn-dark' %>
+<% elsif student_signed_in?%>
+  <%= link_to "Back", student_root_path, class:'btn btn-dark' %>
+<% else %>
+  <%= link_to "Back", courses_path, class:'btn btn-dark' %>
+<% end %>

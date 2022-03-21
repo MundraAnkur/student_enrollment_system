@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Edit Student Profile</h4>
+  </div>
+  <div class="card-body">
+    <%= form_with(model: @student, local: true) do |f| %>
+      <%= render "home/error_messages", resource: @student %>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :student_id, class: "form-control", placeholder: 'Student Id', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :name, class: "form-control", placeholder: 'Name', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.date_field :dob, class: "form-control", placeholder: 'Date Of Birth', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :major, class: "form-control", placeholder: 'Major', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :email, class: "form-control", placeholder: 'Email', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :phone, class: "form-control", placeholder: 'Phone', required: true %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class: 'btn btn-secondary' %>
+        <%= link_to "Back", admin_students_path, class: 'btn btn-dark' %>
+      </div>
+    <% end %>
+  </div>
+</div>

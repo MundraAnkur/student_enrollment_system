@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Edit <%= resource_name.to_s.humanize %></h4>
+  </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "home/error_messages", resource: resource %>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :student_id, class:"form-control", placeholder:'Student Id', disabled: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :name, class: "form-control", placeholder: 'Name', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.date_field :dob, class: "form-control", placeholder: 'Date Of Birth', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :major, class:"form-control", placeholder:'Major', disabled: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :email, class:"form-control", placeholder:'Email', disabled: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :phone, class: "form-control", placeholder: 'Phone', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.label :current_password %> <i>(Need current password to confirm your changes)</i><br/>
+          <%= f.password_field :current_password, autofocus: true, class: "form-control", placeholder: 'Current Password', required: true %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class: 'btn btn-secondary' %>
+        <%= link_to "Back", :back, class: 'btn btn-dark' %>
+      </div>
+    <% end %>
+  </div>
+</div>

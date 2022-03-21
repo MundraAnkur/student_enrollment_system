@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover align-middle">
+    <thead class="table-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Department</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @instructors.each do |instructor| %>
+      <tr>
+        <td><%= instructor.name %></td>
+        <td><%= instructor.email %></td>
+        <td><%= instructor.department %></td>
+        <td><%= link_to 'Courses', instructor_courses_url(instructor), class: 'btn btn-outline-primary' %></td>
+        <td><%= link_to 'Edit', edit_instructor_path(instructor), class: 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Delete', instructor, method: :delete, data: { turbo_method: :delete,
+                                                                       turbo_confirm: "Are you sure?" }, class: 'btn btn-outline-danger' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<div>
+  <%= link_to "New Instructor", new_instructor_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Back', admin_root_path, class: 'btn btn-dark' %>
+</div>

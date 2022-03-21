@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  instructor_name: MyString
+  weekday1: MyString
+  weekday2: MyString
+  start_time: 2022-02-13 15:07:02
+  end_time: 2022-02-13 15:07:02
+  code: CSC505
+  capacity: 1
+  waitlist_capacity: 1
+  status: MyString
+  room: MyString
+  instructor: one
+
+two:
+  name: MyString
+  description: MyString
+  instructor_name: MyString
+  weekday1: MyString
+  weekday2: MyString
+  start_time: 2022-02-13 15:07:02
+  end_time: 2022-02-13 15:07:02
+  code: CSC510
+  capacity: 1
+  waitlist_capacity: 1
+  status: MyString
+  room: MyString
+  instructor: two

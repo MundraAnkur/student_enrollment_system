@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Register</h4>
+  </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "home/error_messages", resource: resource %>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :name, class: "form-control", placeholder: 'Name', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :department, class: "form-control", placeholder: 'Department', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.text_field :email, class: "form-control", placeholder: 'Email', required: true %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.password_field :password, class: "form-control", placeholder: 'Password', required: true %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: 'Password Confirmation', required: true %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Register", class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>
+<%= render "instructors/shared/links" %>
