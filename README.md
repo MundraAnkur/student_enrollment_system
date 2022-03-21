@@ -1,13 +1,7 @@
 # Student Enrollment System
 
-Deployed Application: https://project-2-team-2679-3.herokuapp.com/
-
-Repository Link: https://github.ncsu.edu/amundra/Student-Enrollment-System
-
 Admin Credentials:
-
 **Email**: admin@example.com
-
 **Password**: admin123
 
 This repo is for a Student Enrollment System that can be used in schools. It provides the following features:
@@ -18,12 +12,6 @@ This repo is for a Student Enrollment System that can be used in schools. It pro
 - Students can be added to the waitlist for a course if there is space on the waitlist(provided instructor has enabled waitlist).
 - Students are automatically enrolled from the waitlist into the course if another enrolled student drops the course.
 
-### Team members
-Ankur Mundra (amundra@ncsu.edu)
-
-Shruti Satish Magai (smagai@ncsu.edu)
-
-Sri Athithya Kruth Babu (sbabu@ncsu.edu)
 
 ### Rails Model Dependency Diagram
 
@@ -56,14 +44,6 @@ Once they sign in, they have the following capabilities in the system:
 - Students can update their personal information apart from email address and student ID. 
 
 ## Administrator(Admin)
-
-The admin can log in to the application with following information:
-Admin Credentials:
-
-**Email**: admin@example.com
-
-**Password**: admin123
-
 Admins have the following capabilities in the system:
 
 - Admins can add new students or instructors.
